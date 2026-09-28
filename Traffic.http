@@ -1,0 +1,67 @@
+### CREATE TRAFFIC RECORD
+POST http://localhost:8080/api/traffic
+Content-Type: application/json
+
+{
+  "densityLevel": "HIGH",
+  "vehicleCount": 150
+}
+
+###
+
+### CREATE LOW TRAFFIC
+POST http://localhost:8080/api/traffic
+Content-Type: application/json
+
+{
+  "densityLevel": "LOW",
+  "vehicleCount": 40
+}
+
+###
+
+### CREATE MEDIUM TRAFFIC
+POST http://localhost:8080/api/traffic
+Content-Type: application/json
+
+{
+  "densityLevel": "MEDIUM",
+  "vehicleCount": 90
+}
+
+###
+
+### CREATE VERY HIGH TRAFFIC
+POST http://localhost:8080/api/traffic
+Content-Type: application/json
+
+{
+  "densityLevel": "VERY_HIGH",
+  "vehicleCount": 250
+}
+
+###
+
+### GET ALL TRAFFIC RECORDS
+GET http://localhost:8080/api/traffic
+
+###
+
+### GET TRAFFIC BY ID
+GET http://localhost:8080/api/traffic/1
+
+###
+
+### UPDATE TRAFFIC RECORD
+PUT http://localhost:8080/api/traffic/1
+Content-Type: application/json
+
+{
+  "densityLevel": "MEDIUM",
+  "vehicleCount": 100
+}
+
+###
+
+### DELETE TRAFFIC RECORD
+DELETE http://localhost:8080/api/traffic/1

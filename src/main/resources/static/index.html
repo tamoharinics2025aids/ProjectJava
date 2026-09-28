@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urban Traffic & Toll Optimization</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        🚦
+        <span>UrbanTraffic</span>
+    </div>
+
+    <div class="menu">
+
+        <button class="menu-item active" onclick="showSection('dashboard')">
+            🏠 Dashboard
+        </button>
+
+        <button class="menu-item" onclick="showSection('traffic')">
+            🚗 Traffic Monitoring
+        </button>
+
+        <button class="menu-item" onclick="showSection('toll')">
+            💰 Toll Optimization
+        </button>
+
+        <button class="menu-item" onclick="showSection('reports')">
+            📊 Reports
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div>
+            <h1>Urban Traffic & Toll Optimization</h1>
+            <p>Smart City Traffic Management System</p>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            System Online
+        </div>
+
+    </header>
+
+
+    <!-- DASHBOARD -->
+
+    <section id="dashboard" class="section active">
+
+        <h2>Traffic Management Dashboard</h2>
+
+        <p class="section-description">
+            Real-time traffic density monitoring and dynamic toll management.
+        </p>
+
+
+        <!-- SUMMARY CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🚦</div>
+
+                <div>
+                    <p>Total Traffic Records</p>
+                    <h3 id="totalRecords">0</h3>
+                </div>
+            </div>
+
+
+            <div class="card high-card">
+                <div class="card-icon">🔴</div>
+
+                <div>
+                    <p>High Traffic</p>
+                    <h3 id="highTraffic">0</h3>
+                </div>
+            </div>
+
+
+            <div class="card medium-card">
+                <div class="card-icon">🟠</div>
+
+                <div>
+                    <p>Medium Traffic</p>
+                    <h3 id="mediumTraffic">0</h3>
+                </div>
+            </div>
+
+
+            <div class="card low-card">
+                <div class="card-icon">🟢</div>
+
+                <div>
+                    <p>Low Traffic</p>
+                    <h3 id="lowTraffic">0</h3>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- TRAFFIC OVERVIEW -->
+
+        <div class="content-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h3>Current Traffic Overview</h3>
+                    <p>Traffic density received from monitoring systems</p>
+                </div>
+
+                <button class="refresh-btn" onclick="loadTraffic()">
+                    🔄 Refresh
+                </button>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Density Level</th>
+                        <th>Vehicle Count</th>
+                        <th>Status</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="trafficTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRAFFIC MONITORING -->
+
+    <section id="traffic" class="section">
+
+        <h2>Traffic Monitoring</h2>
+
+        <p class="section-description">
+            Record and monitor traffic density across urban highway corridors.
+        </p>
+
+
+        <div class="content-card">
+
+            <h3>Add Traffic Record</h3>
+
+            <p class="form-description">
+                Enter the current traffic density and number of vehicles.
+            </p>
+
+
+            <form id="trafficForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Traffic Density</label>
+
+                        <select id="densityLevel" required>
+
+                            <option value="">Select Density</option>
+
+                            <option value="LOW">LOW</option>
+
+                            <option value="MEDIUM">MEDIUM</option>
+
+                            <option value="HIGH">HIGH</option>
+
+                            <option value="VERY_HIGH">VERY HIGH</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Vehicle Count</label>
+
+                        <input
+                                type="number"
+                                id="vehicleCount"
+                                placeholder="Enter vehicle count"
+                                min="0"
+                                required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="primary-btn">
+                    Add Traffic Record
+                </button>
+
+            </form>
+
+
+            <p id="formMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TOLL OPTIMIZATION -->
+
+    <section id="toll" class="section">
+
+        <h2>Toll Optimization</h2>
+
+        <p class="section-description">
+            Dynamic toll pricing based on real-time traffic congestion.
+        </p>
+
+
+        <div class="toll-cards">
+
+            <div class="toll-card">
+
+                <h3>LOW</h3>
+
+                <p>Traffic Density</p>
+
+                <strong>1.0 ×</strong>
+
+                <span>Base Rate</span>
+
+            </div>
+
+
+            <div class="toll-card">
+
+                <h3>MEDIUM</h3>
+
+                <p>Traffic Density</p>
+
+                <strong>1.2 ×</strong>
+
+                <span>Base Rate</span>
+
+            </div>
+
+
+            <div class="toll-card">
+
+                <h3>HIGH</h3>
+
+                <p>Traffic Density</p>
+
+                <strong>1.5 ×</strong>
+
+                <span>Base Rate</span>
+
+            </div>
+
+
+            <div class="toll-card">
+
+                <h3>VERY HIGH</h3>
+
+                <p>Traffic Density</p>
+
+                <strong>2.0 ×</strong>
+
+                <span>Base Rate</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="content-card">
+
+            <h3>Dynamic Toll Calculation</h3>
+
+            <p class="form-description">
+                Select traffic density to calculate the applicable congestion multiplier.
+            </p>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>Base Toll Rate (₹)</label>
+
+                    <input
+                            type="number"
+                            id="baseRate"
+                            placeholder="Example: 100"
+                            min="0"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Traffic Density</label>
+
+                    <select id="tollDensity">
+
+                        <option value="LOW">LOW</option>
+
+                        <option value="MEDIUM">MEDIUM</option>
+
+                        <option value="HIGH">HIGH</option>
+
+                        <option value="VERY_HIGH">VERY HIGH</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button class="primary-btn" onclick="calculateToll()">
+                Calculate Dynamic Toll
+            </button>
+
+
+            <div id="tollResult" class="toll-result">
+
+                <p>Calculated Toll</p>
+
+                <h3>₹ 0.00</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REPORTS -->
+
+    <section id="reports" class="section">
+
+        <h2>Reports</h2>
+
+        <p class="section-description">
+            Traffic and toll management summary.
+        </p>
+
+
+        <div class="report-grid">
+
+            <div class="report-card">
+
+                <span>🚗</span>
+
+                <h3>Traffic Records</h3>
+
+                <p id="reportTraffic">0</p>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <span>🚦</span>
+
+                <h3>Total Vehicles</h3>
+
+                <p id="totalVehicles">0</p>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <span>🔴</span>
+
+                <h3>High Congestion</h3>
+
+                <p id="reportHigh">0</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="content-card">
+
+            <h3>System Information</h3>
+
+            <ul class="system-list">
+
+                <li>
+                    <strong>Traffic Monitoring:</strong>
+                    Real-time traffic density records
+                </li>
+
+                <li>
+                    <strong>Dynamic Pricing:</strong>
+                    Toll multiplier based on congestion
+                </li>
+
+                <li>
+                    <strong>Vehicle Management:</strong>
+                    RFID/ANPR based vehicle identification
+                </li>
+
+                <li>
+                    <strong>Financial Management:</strong>
+                    Toll revenue and maintenance expenditure
+                </li>
+
+                <li>
+                    <strong>Budget Management:</strong>
+                    Highway zone budget tracking
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

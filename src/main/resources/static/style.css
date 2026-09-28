@@ -1,0 +1,648 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #1f2937;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    background: #111827;
+    color: white;
+
+    padding: 25px 15px;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 21px;
+    font-weight: bold;
+
+    padding: 10px;
+    margin-bottom: 35px;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.menu-item {
+    width: 100%;
+
+    padding: 14px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #d1d5db;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+
+.menu-item:hover,
+.menu-item.active {
+    background: #2563eb;
+    color: white;
+}
+
+
+/* MAIN */
+
+.main {
+    margin-left: 240px;
+
+    min-height: 100vh;
+}
+
+
+/* HEADER */
+
+header {
+    height: 85px;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 35px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+header h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+
+header p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+.status {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+}
+
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+}
+
+
+/* SECTIONS */
+
+.section {
+    display: none;
+
+    padding: 30px 35px;
+}
+
+
+.section.active {
+    display: block;
+}
+
+
+.section h2 {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+
+/* DASHBOARD CARDS */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+
+.card-icon {
+    font-size: 30px;
+}
+
+
+.card p {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    margin-bottom: 7px;
+}
+
+
+.card h3 {
+    font-size: 27px;
+}
+
+
+.high-card {
+    border-left: 4px solid #ef4444;
+}
+
+
+.medium-card {
+    border-left: 4px solid #f59e0b;
+}
+
+
+.low-card {
+    border-left: 4px solid #22c55e;
+}
+
+
+/* CONTENT CARD */
+
+.content-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+
+.card-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.card-header h3 {
+    margin-bottom: 5px;
+}
+
+
+.card-header p {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* BUTTONS */
+
+button {
+    cursor: pointer;
+}
+
+
+.refresh-btn {
+    border: none;
+
+    background: #eef2ff;
+
+    color: #2563eb;
+
+    padding: 9px 15px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+}
+
+
+.primary-btn {
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    margin-top: 10px;
+}
+
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* TABLE */
+
+.table-container {
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+th {
+    background: #f3f4f6;
+
+    padding: 13px;
+
+    text-align: left;
+
+    font-size: 13px;
+}
+
+
+td {
+    padding: 13px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 14px;
+}
+
+
+.density-high {
+    color: #dc2626;
+
+    font-weight: bold;
+}
+
+
+.density-medium {
+    color: #d97706;
+
+    font-weight: bold;
+}
+
+
+.density-low {
+    color: #16a34a;
+
+    font-weight: bold;
+}
+
+
+.density-very-high {
+    color: #991b1b;
+
+    font-weight: bold;
+}
+
+
+/* FORMS */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin: 20px 0;
+}
+
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.form-group label {
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+}
+
+
+.form-description {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+#formMessage {
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+
+/* TOLL */
+
+.toll-cards {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.toll-card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+
+.toll-card h3 {
+    margin-bottom: 8px;
+}
+
+
+.toll-card p {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+
+.toll-card strong {
+    display: block;
+
+    font-size: 25px;
+
+    margin-bottom: 7px;
+}
+
+
+.toll-card span {
+    color: #6b7280;
+
+    font-size: 12px;
+}
+
+
+.toll-result {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #eff6ff;
+
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+
+.toll-result p {
+    color: #6b7280;
+
+    margin-bottom: 5px;
+}
+
+
+.toll-result h3 {
+    font-size: 30px;
+
+    color: #2563eb;
+}
+
+
+/* REPORTS */
+
+.report-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.report-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+
+.report-card span {
+    font-size: 30px;
+}
+
+
+.report-card h3 {
+    margin: 10px 0;
+}
+
+
+.report-card p {
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #2563eb;
+}
+
+
+.system-list {
+    list-style: none;
+}
+
+
+.system-list li {
+    padding: 15px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.system-list li:last-child {
+    border-bottom: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .toll-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main {
+        margin-left: 190px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .report-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    header {
+        height: auto;
+
+        gap: 15px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
